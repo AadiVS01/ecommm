@@ -1,76 +1,93 @@
-E-Commerce App
+# 🛒 E-Commerce App  
+**Built with Next.js · Prisma · SQLite · Stripe**
 
-A modern, full-stack e-commerce application built with Next.js, Prisma, SQLite, and Stripe.
-Supports product browsing, cart management, checkout, and secure online payments.
+![Next.js](https://img.shields.io/badge/Next.js-000?logo=next.js)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?logo=prisma)
+![Stripe](https://img.shields.io/badge/Stripe-626CD9?logo=stripe)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
-Tech Stack
+---
 
-Next.js – App Router, server actions, API routes
+## 📌 Overview
+A modern full-stack **e-commerce application** built using **Next.js (App Router)**, **Prisma ORM**, **SQLite**, and **Stripe**.  
+Includes product pages, cart system, checkout flow, and secure payments.
 
-Prisma ORM – Database modeling & migrations
+---
 
-SQLite – Lightweight, file-based database
+## 🚀 Tech Stack
 
-Stripe – Secure payments & webhooks
+- **Next.js 14** – App Router, Server Components  
+- **Prisma ORM**  
+- **SQLite Database**  
+- **Stripe Checkout**  
+- **Tailwind CSS**  
+- **TypeScript**
 
-Tailwind CSS – UI styling
+---
 
-TypeScript – Full type safety
+## ✨ Features
 
-Features
+- 🛍️ Product listing & product details  
+- 🛒 Cart with persistent state  
+- 💳 Stripe Checkout integration  
+- 📦 Order creation & webhook verification  
+- 🔐 Admin panel (optional)  
+- ⚡ Fast server-side rendering  
 
-User authentication (optional, depends on implementation)
+---
 
-Product listing, filtering & single product page
+## 📂 Project Structure
 
-Add to cart, cart persistence
+.
+├── app/
+│ ├── api/
+│ │ ├── products/
+│ │ └── checkout/
+│ ├── cart/
+│ └── product/[id]/
+├── prisma/
+│ └── schema.prisma
+├── public/
+└── package.json
 
-Stripe checkout integration
+yaml
+Copy code
 
-Order creation & payment verification
+---
 
-Admin support for adding/editing products (if included)
+## 🛠️ Installation & Setup
 
-Project Structure
-/app
-  /api
-    /products
-    /checkout
-  /cart
-  /product/[id]
-/prisma
-  schema.prisma
+### 1. Clone the repository
 
-Setup & Installation
-1. Clone the project
-git clone <repo-url>
+```bash
+git clone <your-repo-url>
 cd ecommerce-app
-
 2. Install dependencies
+bash
+Copy code
 npm install
-
-3. Configure environment variables
-
-Create .env:
-
+3. Create .env file
+ini
+Copy code
 DATABASE_URL="file:./dev.db"
-STRIPE_SECRET_KEY=<your-secret-key>
-STRIPE_PUBLIC_KEY=<your-public-key>
-STRIPE_WEBHOOK_SECRET=<your-webhook-secret>
-NEXT_PUBLIC_STRIPE_PUBLIC_KEY=<your-public-key>
 
+STRIPE_SECRET_KEY=your_stripe_secret_key
+STRIPE_WEBHOOK_SECRET=your_webhook_secret
+NEXT_PUBLIC_STRIPE_PUBLIC_KEY=your_public_key
 4. Setup Prisma
+bash
+Copy code
 npx prisma migrate dev
-
-5. Run the development server
+5. Run the app
+bash
+Copy code
 npm run dev
-
-Stripe Local Testing
-
-Use Stripe CLI:
-
+🧪 Stripe Webhooks (Local Testing)
+bash
+Copy code
 stripe listen --forward-to localhost:3000/api/stripe/webhook
-
-Production Build
+🏗️ Production Build
+bash
+Copy code
 npm run build
 npm start
