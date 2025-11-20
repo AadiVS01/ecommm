@@ -1,29 +1,76 @@
-# Create T3 App
+E-Commerce App
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A modern, full-stack e-commerce application built with Next.js, Prisma, SQLite, and Stripe.
+Supports product browsing, cart management, checkout, and secure online payments.
 
-## What's next? How do I make an app with this?
+Tech Stack
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+Next.js – App Router, server actions, API routes
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+Prisma ORM – Database modeling & migrations
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+SQLite – Lightweight, file-based database
 
-## Learn More
+Stripe – Secure payments & webhooks
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+Tailwind CSS – UI styling
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+TypeScript – Full type safety
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+Features
 
-## How do I deploy this?
+User authentication (optional, depends on implementation)
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Product listing, filtering & single product page
+
+Add to cart, cart persistence
+
+Stripe checkout integration
+
+Order creation & payment verification
+
+Admin support for adding/editing products (if included)
+
+Project Structure
+/app
+  /api
+    /products
+    /checkout
+  /cart
+  /product/[id]
+/prisma
+  schema.prisma
+
+Setup & Installation
+1. Clone the project
+git clone <repo-url>
+cd ecommerce-app
+
+2. Install dependencies
+npm install
+
+3. Configure environment variables
+
+Create .env:
+
+DATABASE_URL="file:./dev.db"
+STRIPE_SECRET_KEY=<your-secret-key>
+STRIPE_PUBLIC_KEY=<your-public-key>
+STRIPE_WEBHOOK_SECRET=<your-webhook-secret>
+NEXT_PUBLIC_STRIPE_PUBLIC_KEY=<your-public-key>
+
+4. Setup Prisma
+npx prisma migrate dev
+
+5. Run the development server
+npm run dev
+
+Stripe Local Testing
+
+Use Stripe CLI:
+
+stripe listen --forward-to localhost:3000/api/stripe/webhook
+
+Production Build
+npm run build
+npm start
